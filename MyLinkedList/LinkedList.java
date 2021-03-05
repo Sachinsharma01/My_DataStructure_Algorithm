@@ -29,4 +29,15 @@ public class LinkedList {
         }
         System.out.println(n.data);
     }
+    public int remove() throws IndexOutOfBoundsException {
+        Node n = head;
+        if (head == null)
+            throw new IndexOutOfBoundsException("LinkedList is Empty");
+        for (int i = 0; i < size - 1; i++) {
+            n = n.next;
+        }
+        int data = n.data;
+        n.next = null;
+        return data;
+    }
 }

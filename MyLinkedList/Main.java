@@ -8,6 +8,7 @@ public class Main {
         linkedList.insert(30);
         linkedList.insert(40);
         System.out.println(linkedList.size);
+        System.out.println(linkedList.remove());
         linkedList.print();
     }
 }

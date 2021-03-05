@@ -38,6 +38,7 @@ public class LinkedList {
         }
         int data = n.data;
         n.next = null;
+        size--;
         return data;
     }
 }

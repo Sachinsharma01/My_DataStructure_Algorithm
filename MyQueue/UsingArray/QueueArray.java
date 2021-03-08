@@ -1,44 +1,47 @@
-package MyQueue.UsingLinkedList;
+package MyQueue.UsingArray;
 
 import MyQueue.QueueADT;
 
-import java.util.LinkedList;
 import java.util.NoSuchElementException;
 
-public class QueueUsingLinkedList<E> implements QueueADT<E> {
-    private LinkedList<E> queue;
+public class QueueArray<E> implements QueueADT<E> {
+    private Object[] queue;
     private int MAX_SIZE;
+    private int front;
+    private int rear;
     private int size;
 
-    public QueueUsingLinkedList(int MAX_SIZE) {
-        this.queue = new LinkedList<>();
+    public QueueArray(int MAX_SIZE) {
+        this.queue = new Object[MAX_SIZE];
         this.MAX_SIZE = MAX_SIZE;
+        this.front = -1;
+        this.rear = -1;
     }
 
     @Override
     public void enqueue(E item) throws NoSuchElementException {
-        if (size == MAX_SIZE)
-            throw new NoSuchElementException("Queue is Full!");
+        if (rear == MAX_SIZE)
+            throw new NoSuchElementException("Queue if Full!");
         else {
-            queue.addLast(item);
+            queue[++rear] = item;
             size++;
         }
     }
 
     @Override
     public E dequeue() throws NoSuchElementException {
-        if (size == 0)
+        if (front == rear)
             throw new NoSuchElementException("Queue is Empty!");
         else {
             size--;
-            return queue.removeFirst();
+            return (E) queue[++front];
         }
     }
 
     @Override
     public void show() {
-        for (int i = 0; i < size; i++) {
-            System.out.println(queue.get(i));
+        for (int i = front + 1; i <= rear; i++) {
+            System.out.println(queue[i]);
         }
     }
 

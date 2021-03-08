@@ -1,4 +1,4 @@
-package MyQueue.UsingLinkedList;
+package MyQueue;
 
 public interface QueueADT<E> {
     void enqueue(E item);

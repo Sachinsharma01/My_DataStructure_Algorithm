@@ -37,8 +37,9 @@ class DoublyLinkedList<E> implements DoublyLinkedListADT<E> {
     public E remove() {
         Node<E> n = tail;
         tail = tail.previous;
+        E value = tail.data;
         tail.previous.next = tail;
-        return null;
+        return value;
     }
 
     @Override
@@ -49,7 +50,7 @@ class DoublyLinkedList<E> implements DoublyLinkedListADT<E> {
     @Override
     public void show() {
         Node<E> n = tail;
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size - 1; i++) {
             System.out.println(n.data);
             n = n.previous;
         }
@@ -57,7 +58,11 @@ class DoublyLinkedList<E> implements DoublyLinkedListADT<E> {
 
     @Override
     public E get(int index) {
-        return null;
+        Node<E> n = head;
+        for (int i = 0; i < index - 1; i++) {
+            n = n.next;
+        }
+        return n.data;
     }
 
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
 package PraticeQues;
 
-import java.util.Collections;
+import java.util.Comparator;
 
 class Student {
     int studentId;
@@ -13,30 +13,6 @@ class Student {
         this.studentId = studentId;
         this.studentName = studentName;
         this.studentAge = studentAge;
-    }
-
-    public int getStudentAge() {
-        return studentAge;
-    }
-
-    public void setStudentAge(int studentAge) {
-        this.studentAge = studentAge;
-    }
-
-    public int getStudentId() {
-        return studentId;
-    }
-
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
-    }
-
-    public String getStudentName() {
-        return studentName;
-    }
-
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
     }
 }
 
@@ -65,9 +41,9 @@ class DoublyLinkedList {
         }
     }
 
-    public void sort() {
-        Student current = null, index = null;
-        int temp;
+    public void sort( Comparator<? super Student> comparator) {
+
+        /*int temp;
         //Check whether list is empty
         if (head == null) {
             return;
@@ -84,8 +60,10 @@ class DoublyLinkedList {
                     }
                 }
             }
-        }
+        }*/
+
     }
+
     void print() {
         Student s = head;
         for (int i = 0; i < size; i++) {
@@ -97,12 +75,20 @@ class DoublyLinkedList {
 class Main {
     public static void main(String[] args) {
         DoublyLinkedList dll = new DoublyLinkedList();
-        Student st = new Student(3, "Aman", 20);
+        Student st = new Student(1, "Vipin", 20);
         dll.add(st);
         Student s = new Student(2, "Sachin", 41);
         dll.add(s);
-        dll.sort();
+        Student s1 = new Student(4, "Sanat", 42);
+        dll.add(s1);
+        dll.sort(Comparator.comparingInt(o -> o.studentId));
         dll.print();
+//        Collections.sort(dll, new Comparator<Student>(){
+//            @Override
+//            public int compare(Student s1, Student s2) {
+//                return s1.studentId = s2.studentId;
+//            }
+//        });
     }
 }
 

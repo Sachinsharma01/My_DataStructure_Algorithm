@@ -3,7 +3,6 @@ package Wipro;
 public abstract class Instrument {
     public abstract void play();
 }
-
 class Piano extends Instrument{
     @Override
     public void play() {

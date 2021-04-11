@@ -1,27 +1,33 @@
 package MyTree;
 
-public class Tree {
+class Tree {
     Node root;
+    Node n = root;
     public void insert(int data) {
-        if (root == null) {
-            root = new Node(data);
-            System.out.println(data + " Inserted at root node");
-        } else {
-            insert(root, data);
-        }
+        root = insert(root, data);
     }
-    public void insert(Node node, int data) {
-        if (node.left != null) {
-            insert(node.left, data);
-        } else if (node.left == null) {
-            System.out.println(data + " Inserted at left of parent " + node.data);
-            node.left = new Node(data);
+    private Node insert(Node node, int data) {
+        if (node == null) {
+            return new Node(data);
         }
-        else if (node.right != null) {
-            insert(node.right, data);
+
+        if (data < node.data) {
+            node.left = insert(node.left, data);
+        } else if (data > node.data) {
+            node.right = insert(node.right, data);
         } else {
-            System.out.println(data + " Inserted at right of parent " + node.data);
-            node.right = new Node(data);
+            // value already exists
+            return node;
+        }
+
+        return node;
+    }
+    public void print(){print(root);}
+    private void print(Node node) {
+        if (node != null) {
+            print(node.left);
+            System.out.println(" " + node.data);
+            print(node.right);
         }
     }
 }
@@ -33,7 +39,6 @@ class Main {
         tree.insert(30);
         tree.insert(40);
         tree.insert(50);
-        tree.insert(60);
-        tree.insert(70);
+        tree.print();
     }
 }

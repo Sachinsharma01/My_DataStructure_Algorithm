@@ -19,6 +19,16 @@ public class BinarySearchTree {
             }
         }
     }
+    public Node search(Node node, int data) {
+        if (node == null)
+            return null;
+        else if (node.data == data)
+            return node;
+        else if (node.data < data)
+            return search(node.left, data);
+        else
+            return search(node.right, data);
+    }
     public void traverseInOrder(Node node) {
         if (node != null) {
             traverseInOrder(node.left);
@@ -72,6 +82,8 @@ public class BinarySearchTree {
         tree.traversePreOrder(root);
 
         System.out.println("\nMaximum Height : " + tree.maxHeight(root));
+
+        System.out.println("Data : " + tree.search(root, 4).data);
 
     }
 }

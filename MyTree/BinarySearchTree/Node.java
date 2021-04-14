@@ -1,4 +1,4 @@
-package MyTree;
+package MyTree.BinarySearchTree;
 
 public class Node {
     int data;

@@ -20,6 +20,7 @@ class LinkedList<E> implements LinkedADT<E> {
         }
         E value = n.next.data;
         n.next = n.next.next;
+        size--;
         return value;
     }
 

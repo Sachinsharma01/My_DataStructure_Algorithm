@@ -1,4 +1,4 @@
-package Algorithms;
+package Algorithms.Sorting;
 /* TODO :: visit the link for more details => https://youtu.be/f-f50FjS_jA */
 
 public class InsertionSort {

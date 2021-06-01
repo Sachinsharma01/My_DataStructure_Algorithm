@@ -1,5 +1,8 @@
 package MyTree.BinarySearchTree;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinarySearchTree {
 
     public void insert(Node node, int value) {
@@ -19,6 +22,25 @@ public class BinarySearchTree {
             }
         }
     }
+
+    public Node delete(Node node, int data) {
+        if (node == null)
+            return node;
+        if (data < node.data) {
+            node.left = delete(node.left, data);
+        } else if(data > node.data) {
+            node.right = delete(node.right, data);
+        } else {
+            if (node.left == null && node.right == null)
+                return null;
+            else if (node.right == null)
+                return node.left;
+            else if (node.left == null)
+                return node.right;
+        }
+        return node;
+    }
+
     public Node search(Node node, int data) {
         if (node == null)
             return null;

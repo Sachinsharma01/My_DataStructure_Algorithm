@@ -5,7 +5,7 @@ package Algorithms.Searching;
 *  NOTE :: The Binary Search algorithm works only on sorted data
 *  TODO:: visit this link for more details => https://www.youtube.com/watch?v=7iE5xNOJET0
 *   Copy paste link is it's not working */
-
+//testing
 public class BinarySearch {
     public int binarySearch(int array[], int element, int lb, int ub) {
         while (lb < ub) {

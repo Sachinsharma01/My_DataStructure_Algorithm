@@ -68,7 +68,7 @@ public class SinglyLinkedList {
         }
     }
 
-    // delete at a position
+    // delete node at a position
     public int delete(int pos) {
         if (pos == 1)
             deleteFirst();

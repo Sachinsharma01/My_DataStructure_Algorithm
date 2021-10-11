@@ -114,6 +114,16 @@ public class SinglyLinkedList {
         return size;
     }
 
+    // find the Middle node of the Linked List
+    public int middle() {
+        ListNode fast = head, slow = head;
+        while (fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow.data;
+    }
+
     public static void main(String[] args) throws Exception {
         SinglyLinkedList sll = new SinglyLinkedList();
 //        sll.head = new ListNode(10);
@@ -168,5 +178,6 @@ public class SinglyLinkedList {
         System.out.println("Length of the LinkedList : " + sll.size());
         System.out.println();
 
+        System.out.println("Middle Of the Linked List => " + sll.middle());
     }
 }

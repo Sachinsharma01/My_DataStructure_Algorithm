@@ -124,6 +124,27 @@ public class SinglyLinkedList {
         return slow.data;
     }
 
+    // rotate a linked List
+    public ListNode rotateRight(ListNode head, int k) {
+        ListNode last = null, crr = head, node;
+        int size = 0;
+        while (crr.next != null) {
+            crr = crr.next;
+            size ++;
+        }
+        last = crr;
+        crr = head;
+        k = size - k;
+        while(k --> 0) {
+            crr = crr.next;
+        }
+        node = crr;
+        last.next = head;
+        head = node;
+        crr.next = null;
+        return head;
+    }
+
     public static void main(String[] args) throws Exception {
         SinglyLinkedList sll = new SinglyLinkedList();
 //        sll.head = new ListNode(10);
@@ -178,6 +199,9 @@ public class SinglyLinkedList {
         System.out.println("Length of the LinkedList : " + sll.size());
         System.out.println();
 
-        System.out.println("Middle Of the Linked List => " + sll.middle());
+        System.out.println("Middle Of the Linked List => " + sll.middle() + "\n");
+
+        System.out.println(sll.rotateRight(sll.head, 2));
+        sll.print();
     }
 }

@@ -1,5 +1,7 @@
 package DSA_College.LinkList;
 
+import java.util.HashMap;
+
 public class SinglyLinkedList {
     private ListNode head;
 
@@ -55,6 +57,16 @@ public class SinglyLinkedList {
         }
     }
 
+    // insert a node in sorted order
+    public void insertValue(int data) {
+        ListNode n = head, node = new ListNode(data);
+        while (n.next != null && n.data < data) {
+            n = n.next;
+        }
+        node.next = n.next;
+        n.next = node;
+    }
+
     // delete node at the beginning
     public int deleteFirst() {
         if (head == null) {
@@ -87,6 +99,7 @@ public class SinglyLinkedList {
         }
         return -1;
     }
+
     // delete a node at the last
     public int delete() {
         if (size() == 1) {
@@ -124,6 +137,11 @@ public class SinglyLinkedList {
         return slow.data;
     }
 
+    // Delete nth node from last
+    public int deleteNthLast(int index) {
+        return delete(size() - index - 1);
+    }
+
     // rotate a linked List
     public ListNode rotateRight(ListNode head, int k) {
         ListNode last = null, crr = head, node;
@@ -143,6 +161,19 @@ public class SinglyLinkedList {
         head = node;
         crr.next = null;
         return head;
+    }
+
+    // remove the duplicate nodes from sorted linked list
+    public void removeDuplicates() {
+        ListNode n = head;
+        HashMap<Integer, Integer> h = new HashMap<>();
+        while (n != null && n.next != null) {
+            if (n.data == n.next.data)
+                n.next = n.next.next;
+            else {
+                n = n.next;
+            }
+        }
     }
 
     public static void main(String[] args) throws Exception {
@@ -201,7 +232,18 @@ public class SinglyLinkedList {
 
         System.out.println("Middle Of the Linked List => " + sll.middle() + "\n");
 
-        System.out.println(sll.rotateRight(sll.head, 2));
+//        System.out.println(sll.rotateRight(sll.head, 2));
+//        sll.print();
+
+        System.out.println("Deleted from last => " + sll.deleteNthLast(2));
+        sll.print();
+
+        sll.add(8);
+        sll.removeDuplicates();
+        sll.print();
+        System.out.println();
+
+        sll.insertValue(7);
         sll.print();
     }
 }

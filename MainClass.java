@@ -1,7 +1,7 @@
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.Scanner;
-
+// this is the main class.
 public class MainClass {
     public static void main(String[] args) {
         LinkedList <Friend> friends = new LinkedList<>();

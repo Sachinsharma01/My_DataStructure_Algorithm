@@ -21,22 +21,23 @@ public class BinarySearchTree {
     }
 
     public Node delete(Node node, int data) {
-        if (data > node.data)
+        if (node == null)
+            return null;
+        if (node.data < data)
             node.right = delete(node.right, data);
-        else if (data < node.data)
+        else if (node.data > data)
             node.left = delete(node.left, data);
         else {
-            if (node.right != null && node.left != null) {
-                int max = node.right.data;
-            } else if (node.right != null){
-                return node.right;
-            } else if (node.left != null) {
-                return node.left;
-            } else {
+            if (node.left == null && node.right == null)
                 return null;
+            else if (node.left == null) {
+                return node.right;
+            } else if (node.right == null) {
+                return node.left;
             }
+        } else {
+
         }
-        return node;
     }
 
     public Node search(Node node, int data) {

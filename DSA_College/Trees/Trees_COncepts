@@ -1,0 +1,33 @@
+Trees are the non linear data structure which organizes data in the hierarchical structure and this is a recursive definition
+                                            OR
+A tree is any connected graph without any circuits.
+                                            OR
+If in a graph there is one and only one path between every pair of vertices, then graph is called as a tree.
+
+
+//TODO:: Properties of a tree
+ 1 => A tree with n vertices has exactly (n - 1) edges.
+ 2 => A graph is a tree if it is minimally connected.
+ 3 => Any connect with n vertices and n - 1 edges is a tree
+
+// TODO:: Tree Terminologies
+ ## Root => A root is that vertex or a node where the tree originated.
+ ## Edge => An edge is an connected link between nodes or vertices, in a tree with n vertices possibly there exists (n-1) edges.
+ ## Parent => A node which has a branch from it. Theoritically a parent can have any number of child.
+ ## Child => descendent of a parent node. except root node all nodes are child nodes.
+ ## Siblings => Nodes that belongs to same parent are called siblings
+ ## Degree => Degree of a Node == total number of children of that node. Degree of a tree == Highest degree of a Node among all Nodes
+ ## Internal Node (Non-terminal Nodes) => any Node that have at-least one child Node.
+ ## Leaf Node (External Nodes) => Node that do not have any child Node.
+ ## Level of a Node => Every step from leaf to root is called level. Default level of node is 0.
+ ## Height => Longest path from any leaf node to a particular node. Height of root node == Height of the tree.
+ ## Depth => Total number of nodes from root to the particular node is called Depth of that node.
+ ## Subtree => In a tree, each child from a node forms a sub-tree recursively.
+
+// TODO:: Binary Trees
+=> A tree that can have maximum two child nodes.
+                        Types of Binary Trees
+                   1) Labeled Trees         2) Un-labeled Trees
+=> unlabeled trees => none of the node is labeled. Total number of unlabeled trees == (2*n C n) / (n + 1) ex. 6C3 / 4 (n = 3)
+=> labeled trees => number of labeled trees == unlabeled trees * n!.
+Important => multiway tree, B-tree,

@@ -26,4 +26,9 @@ public class BinaryTree {
             }
         }
     }
+
+    // inOrder using Recursion
+    public void inOrder(TreeNode root) {
+        589
+    }
 }

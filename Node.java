@@ -183,18 +183,8 @@ public class Node {
         list.print();
         list.insertAtTheMiddle(new Node(99));
         list.print();
-        //list.deleteAtEnd();
         list.print();
-        //list.deleteAtBegin();
         list.print();
-//        Scanner sc=new Scanner(System.in);
-//        System.out.println("enter the value");
-//        int data= sc.nextInt();
-//        list.search(data);
-//        System.out.println(list.search(data));
-      //  System.out.println(list.findMiddle().data);
-       // list.deleteAtMiddle();
-        //list.print();
         System.out.println(list.length());
         list.insertAtNthPosition(new Node(78), 2);
         list.print();
